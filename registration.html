@@ -1,37 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Registration</title>
-    </head>
-    <body>
-        <h2>Registration</h2>
-        <form>
-        <label for="fname">First name:</label>
-        <input type="text" id="fname" name="fname"><br><br>
-        <label for="lname">Last name:</label>
-        <input type="text" id="lname" name="lname"><br><br>
-        <label for="email">enter email:    </label>
-        <input type="email" id="email" name="email"><br><br>
-        <label for="pwd">password: </label>
-        <input type="password" id="pwd" name="password"><br><br>
-        <label for="birthday">date of birth:  </label>
-        <input type="date" id="birthday" name="birth_date"><br><br>
-        <p>choice of course:</p>
-        <input type="radio" id="Bachelors" name="course" value="Bachelors">
-        <label for="Bachelors">Bachelors</label><br>
-        <input type="radio" id="Masters" name="course" value="Masters">
-        <label for="Masters">Masters</label><br><br>
-        <label for="description">Description:</label><br<br>
-        <textarea id="description" name="description" placeholder="your text goes here"></textarea><br><br>
-        <p>Area of interests</p>
-        <input type="checkbox" id="c" name="subject" value="c programming">
-        <label for="c">C programming</label><br>
-        <input type="checkbox" id="datastructures" name="subject" value="datastructures">
-        <label for="datastructures">Data structures</label><br>
-        <input type="checkbox" id="artificialintelligence" name="subject" value="artificialintelligence">
-        <label for="artificialintelligence">Artificial intelligence</label><br><br>
-        <input type="submit">
-        </form>
-     </body>
+<html>
+<head>
+<title>Form Example</title>
+<script LANGUAGE="JavaScript" type="text/javascript">
+function display() {
+  DispWin = window.open('','NewWin', 'toolbar=no,status=no,width=300,height=200')
+  message = "<ul><li><b>First NAME: </b>" + document.form1.yourname.value;
+  message += "<li><b>Last Name: </b>" + document.form1.lname.value;
+  message += "<li><b>Email : </b>" + document.form1.eel.value;
+  message += "<li><b>Password : </b>" + document.form1.password.value;
+  message += "<li><b>Selected Course : </b>" + document.form1.rdi.value;
+  message += "<li><b>Description Box  : </b>" + document.form1.description.value;
+  message += "<li><b>Area Of Intrest : </b>" + document.form1.subject1.value;
+    message += "<li><b>Area Of Intrest : </b>" + document.form1.subject2.value;
+        message += "<li><b>Area Of Intrest : </b>" + document.form1.subject3.value + "</ul>";
+  DispWin.document.write(message);
+}
+</script>
+</head>
+<body>
+<h1>Registrartion Form</h1>
+
+<form name="form1">
+<p>First Name:<input TYPE="TEXT" SIZE="20" NAME="yourname"></p>
+<p>Last Name: <input TYPE="TEXT" SIZE="30" NAME="lname"></p>
+<p>Email ID: <input TYPE="email" NAME="eel"></p>
+<p>Password: <input TYPE="password" NAME="password"></p><br>
+<p>Select a Course: </p>
+<label><input type="radio" name="rdi" value="bachelors">Bachelors</label><br>
+<label><input type ="radio" name="rdi" value="masters ">masters</label><br><br>
+<label><b>Description:</b><textarea name="description" placeholder="your text goes here"></textarea></label><br>
+<p>Area of Intrests</p>
+<label><input type="checkbox" name="subject1" value="C Programming">C Programming</label><br>
+<label><input type="checkbox" name="subject2" value="Data Structures">Data Stuctures</label><br>
+<label><input type="checkbox" name="subject3" value="Artificial Intelligence">Artificial Intelligence</label><br>
+<p><input TYPE="BUTTON" VALUE="Submit" onClick="display();"></p>
+</form>
+</body>
 </html>
