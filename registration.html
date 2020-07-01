@@ -14,13 +14,16 @@
        var d=document.getElementById("yourname").value;
        var reg=/^[a-zA-Z]+$/;
        var regexp=/^[6-9]\d{9}$/;
-       if(d==0)
-       {
-          alert("Enter a name!")
-       }
+       
        if(reg.test(d)!=true)
-       {
+       { 
+         if(d==0)
+          {
+          alert("Enter a name!")
+           }
+       else{
           alert("Name must be only in Alphabets");
+       }
        }
        if(reg.test(d))
        {
