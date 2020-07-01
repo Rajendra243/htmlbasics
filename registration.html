@@ -3,26 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <title>Form Example</title>
+<script>
+   function valid(){
+     
+      count=0;
+      var phn = document.getElementById("number").value;
+      var a=document.getElementById("type1").checked;
+       var b=document.getElementById("type2").checked;
+       var c=document.getElementById("type3").checked;
+       var d=document.getElementById("yourname").value;
+       var reg=/^[a-zA-Z]+$/;
+       var regexp=/^[6-9]\d{9}$/;
+       if(d==0)
+       {
+          alert("Enter a name!")
+       }
+       if(reg.test(d)!=true)
+       {
+          alert("Name must be only in Alphabets");
+       }
+       if(reg.test(d))
+       {
+          count++;
+       }
+       if(phn==0)
+       {
+        document.getElementById("luser").innerHTML="enter phone number";
+          document.getElementById("luser").style.visibility="visible";
+          document.getElementById("luser").style.color="red"
+       }
+       if(regexp.test(phn))
+        {
+           count++;
+        }
+        else{
+          document.getElementById("luser").innerHTML="invalid phone number";
+          document.getElementById("luser").style.visibility="visible";
+          document.getElementById("luser").style.color="red"
+       }
+       if(a==0&&b==0&&c==0){
+        document.getElementById("text").innerHTML="Please select one subject"
+        document.getElementById("text").style.visibility="visible";
+        document.getElementById("text").style.color="red";
+         }
+      if((a==1) || (b==1) || (c==1))
+      {
+         count++;
+      }
+      
+      if(count==3)
+      {
+         result();
+      }
+   }
+   function result()
+     {
+      var phn = document.getElementById("number").value;
+      var a=document.getElementById("type1").checked;
+      var b=document.getElementById("type2").checked;
+      var c=document.getElementById("type3").checked;
+      var d=document.getElementById("yourname").value;
+      var e=document.getElementById("email").value;
+      var p=document.getElementById("number").value;
+      var c1=document.getElementById("type1").value;
+      var c2=document.getElementById("type2").value;
+      var c3=document.getElementById("type3").value;
+      var r1=document.getElementById("rdi").value;
+      var t=document.getElementById("msg").value;
+      
+      document.write("<b>Full Name :</b>"+ d);
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<b>Email Id : </b>" +e);
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<b>Phone Number: </b>" +p);
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<b>Selected Courses:</b>")
+      document.write("<br>");
+      document.write(r1);
+      document.write("<br>");
+      document.write("<br>");
+      document.write("<b>Area Of Intrests :</b>");
+      document.write("<br>");
+      document.write("<br>");
+     
+      if(a==1)
+      {
+         document.write(c1);
+         document.write("<br>");
+         document.write("<br>");
+      }
+      if(b==1)
+      {
+         document.write(c2);
+         document.write("<br>");
+         document.write("<br>");
+      }
+      if(c==1){
+         document.write(c3);
+         document.write("<br>");
+         document.write("<br>");
+      }
+      
+      document.write("<b>Description:</b>" +t);
+
+   }
+
+</script>
 
 </head>
 <body>
 <h1>Registrartion Form</h1>
 
 <form name="form1">
-<p>First Name:<input TYPE="TEXT" SIZE="20" id="yourname" NAME="yourname"></p>
-<p>Last Name: <input TYPE="TEXT" SIZE="30" NAME="lname"></p>
-<p>Email ID: <input TYPE="email" NAME="eel"></p>
-<p>Password: <input TYPE="password" NAME="password"></p><br>
-<p>Phone no: <input type="text" id="number" placeholder="enter 10 digit number"></p><br>
+<p>Full Name:<input TYPE="TEXT" SIZE="20" id="yourname" ></p>
+<p>Email ID: <input TYPE="email" id="email" ></p>
+<p>Password: <input TYPE="password" id="password"></p><br>
+<p>Phone no: <input type="text" id="number" placeholder="enter 10 digit number" ></p>
+<label id="luser" style="color:red;visibility:hidden">Invalid</label>
+
 <p>Select a Course: </p>
-<label><input type="radio" name="rdi" value="bachelors">Bachelors</label><br>
-<label><input type ="radio" name="rdi" value="masters ">masters</label><br><br>
-<label><b>Description:</b><textarea name="description" placeholder="your text goes here"></textarea></label><br>
+<label><input type="radio" id="rdi" name="virus" value="bachelors">Bachelors</label><br>
+<label><input type ="radio" id="rdi" name="virus" value="masters ">masters</label><br><br>
+
+<label><b>Description:</b><textarea id="msg"  placeholder="your text goes here"></textarea></label><br>
+
 <p>Area of Intrests</p>
-<label><input type="checkbox" name="subject" value="C Programming">C Programming</label><br>
-<label><input type="checkbox" name="subject" value="Data Structures">Data Stuctures</label><br>
-<label><input type="checkbox" name="subject" value="Artificial Intelligence">Artificial Intelligence</label><br>
-<p><input TYPE="BUTTON" VALUE="Submit" onClick="display();" target ="iframe_a"></p>
-</form>
+<label><input type="checkbox" name="subject" id="type1" value="C Programming" >C Programming</label><br>
+<label><input type="checkbox" name="subject" id="type2" value="Data Structures">Data Stuctures</label><br>
+<label><input type="checkbox" name="subject" id="type3" value="Artificial Intelligence">Artificial Intelligence</label><br>
+<label id="text" style="color:red;visibility:hidden">please select</label>
+</form><br>
+<button type="submit"  onclick="valid()">submit</button>
 </body>
 </html>
+ 
